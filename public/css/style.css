@@ -5,136 +5,654 @@ body {
     padding: 0;
 }
 
-/* Header Styles */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
+/* Tittle Styles */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-nav ul {
-    list-style-type: none;
+.section-title h2 {
+    font-size: 36px;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title h2:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #8B4513;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Header Styles */
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.navbar-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
-    margin: 0 10px;
+.nav-links li {
+    margin: 0 15px;
 }
 
-nav ul li a {
-    color: #fff;
+.nav-links a {
     text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #8B4513;  /* Warna coklat untuk hover */
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.login-btn, .signup-btn {
+    text-decoration: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.login-btn {
+    color: #333;
+    border: 1px solid #8B4513;
+}
+
+.signup-btn {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+}
+
+.signup-btn:hover {
+    background-color: #5a2e1a;
 }
 
 /* Hero Section Styles */
 .hero {
     position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
+    height: 100%; /* Memenuhi 100% tinggi viewport */
 }
 
 .hero img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 100%; /* Memenuhi lebar layar */
+    object-fit: cover; /* Menjaga rasio gambar dan mengisi seluruh area */
 }
 
 .hero h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 48px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.card {
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    overflow: hidden;
-}
-
-.card-body {
-    padding: 2rem;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.card-text {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.btn-primary {
-    background-color: #4caf50;
-    border-color: #4caf50;
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-}
-
-.btn-primary:hover {
-    background-color: #45a049;
-    border-color: #45a049;
-}
-
-/* Event Section Styles */
-.event {
-    background-color: #f2f2f2;
-    padding: 40px;
+    transform: translate(-50%, -50%); /* Posisikan teks ke tengah */
+    color: white;
+    font-size: 50px;
     text-align: center;
-}
-
-.event button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    text-decoration: none;
-    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Efek bayangan untuk teks */
+    z-index: 2; /* Pastikan teks muncul di atas gambar */
 }
 
 /* History Section Styles */
-.history {
-    padding: 40px;
+.history-section {
+    padding: 60px 20px;
+    background-color: #fff;
 }
 
-.history img {
-    max-width: 100%;
-    height: auto;
+.history-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
 }
+
+.history-title {
+    grid-column: 1 / span 2;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.history-title h2 {
+    font-size: 36px;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.history-title h2:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #8B4513;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.history-content {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.history-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.history-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-read-more {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color:#8B4513;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-section .text-center {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.read-more-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.read-more-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.read-more-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.read-more-section .content-wrapper {
+    max-width: 800px; /* Lebarkan lebar paragraf */
+    margin: 0 auto;
+    text-align: justify; /* Membuat paragraf rata kanan-kiri */
+}
+
+.read-more-section p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
 
 /* News Section Styles */
-.news {
+.news-section {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.news-grid {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    padding: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.news-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
 }
 
 .news-item img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
 }
 
-.news-item a {
-    color: #4caf50;
+.news-content {
+    padding: 20px;
+}
+
+.news-item h3 {
+    color: #333;
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+}
+
+.news-item p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #8B4513; /* Mengubah warna background menjadi hijau */
+    color: #ffffff; /* Mengubah warna teks menjadi putih untuk kontras yang lebih baik */
     text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+/* Visit Now Section Styles */
+.visit-now {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.visit-now h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #5a3e2b;
+}
+
+.visit-now .highlight {
+    color: #d9822b;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ticket-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.ticket-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.ticket-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ticket-card li {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #666;
+}
+
+.ticket-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #5a3e2b;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+/*Gallery Section Styles */
+.gallery {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.gallery h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #5a3e2b;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Membuat variasi ukuran abstrak */
+.grid-gallery img:nth-child(3n) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.grid-gallery img:nth-child(4n) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.grid-gallery img:nth-child(5n) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+/* Mengatur ukuran gambar dalam modal */
+.modal-body img {
+    width: 100%;  /* Lebar 100% dari lebar modal */
+    height: auto; /* Menjaga proporsi gambar */
+    max-width: 90vw;  /* Ukuran maksimal gambar sesuai dengan lebar layar */
+    max-height: 80vh; /* Membatasi tinggi gambar agar tidak melebihi layar */
+    margin: 0 auto;
+    display: block;
+}
+
+
+
+.review-section {
+    width: 100%;
+    text-align: center;
+    padding: 50px;
+    background-color: #fff;
+}
+
+.village-review-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Untuk menjaga responsivitas */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.village-summary {
+    flex: 1; /* Berikan ruang proporsional */
+    max-width: 300px;
+    text-align: left;
+}
+
+.reviews {
+    flex: 2; /* Berikan lebih banyak ruang ke review */
+    overflow: hidden;
+    max-width: 1200px;
+}
+
+
+.review-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.review-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    flex-shrink: 0;
+    margin: 0 10px;
+}
+
+.review-card h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.review-card .date {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 5px 0 10px;
+}
+
+.review-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.review-card .stars {
+    color: #ffa500;
+    margin-bottom: 10px;
+}
+
+.write-review {
+    margin-top: 20px;
+}
+
+.write-review a {
+    background-color: #8B4513;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.village-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.village-summary img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.village-summary .info {
+    text-align: left;
+}
+
+.village-summary .info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.village-summary .info .stars {
+    color: #ffa500;
+}
+
+.village-summary .info .review-count {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Tombol Slider */
+.slider-button {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 2; /* Pastikan tombol berada di atas elemen lainnya */
+    transition: background-color 0.3s ease;
+}
+
+/* Pastikan parent reviews memiliki position relative untuk referensi tombol */
+.reviews {
+    position: relative;
+}
+
+
+/* Maps Section Styles */
+.maps {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    height: 450px;  /* Sesuaikan tinggi map */
+    margin: 0 auto;
 }
 
 /* Footer Styles */
 footer {
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
 }
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.footer-logo h3 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.footer-social-media h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+    transform: scale(1.1);
+}
+
+.footer-visit-us h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.footer-visit-us p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+/* Footer Bottom Styles */
+.footer-bottom {
+    background-color: #222; /* Warna background footer */
+    color: #fff;  /* Warna teks putih agar kontras */
+    text-align: center;
+    padding: 20px 0;  /* Memberikan jarak vertikal pada footer */
+}
+
+.social-icons a {
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+

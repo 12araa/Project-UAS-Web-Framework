@@ -20,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [historyController::class, 'index'])->name('history_index');
+Route::get('/baca-selengkapnya', function () {
+    return view('pages.baca-selengkapnya'); // Pastikan file view ini tersedia di folder resources/views/pages
+});
+
