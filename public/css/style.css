@@ -21,7 +21,7 @@ body {
 
 .section-title h2:after {
     content: '';
-    position: absolute;
+    position: relative;
     display: block;
     width: 50px;
     height: 3px;
@@ -112,13 +112,14 @@ body {
 /* Hero Section Styles */
 .hero {
     position: relative;
-    height: 100%; /* Memenuhi 100% tinggi viewport */
+    height: 70%; /* Memenuhi 100% tinggi viewport */
 }
 
 .hero img {
     width: 100%;
-    height: 100%; /* Memenuhi lebar layar */
+    height: 700px; /* Memenuhi lebar layar */
     object-fit: cover; /* Menjaga rasio gambar dan mengisi seluruh area */
+    opacity: 0.8; /* Membuat gambar lebih sedikit transparan */
 }
 
 .hero h1 {
@@ -130,7 +131,27 @@ body {
     font-size: 50px;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Efek bayangan untuk teks */
-    z-index: 2; /* Pastikan teks muncul di atas gambar */
+    z-index: 2; /* Pastikan teks berada di atas gambar */
+}
+
+.hero::after {
+    content: "";
+    position: absolute; /* Mengubah posisi dari 'relative' ke 'absolute' untuk mengisi penuh elemen .hero */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Lapisan transparan dengan warna hitam lebih pekat */
+    z-index: 1; /* Menempatkan lapisan di bawah teks */
+}
+
+/* Fitur Section Styles */
+.icon-large i {
+    font-size: 48px; /* Atur ukuran ikon */
+    color: #333; /* Tambahkan warna jika diperlukan */
+}
+.card-title {
+    font-size: 20px; /* Ukuran font untuk judul */
 }
 
 /* History Section Styles */
@@ -243,72 +264,10 @@ body {
     margin-bottom: 20px;
 }
 
-
-/* News Section Styles */
-.news-section {
-    padding: 60px 20px;
-    background-color: #fff;
-}
-
-.news-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.news-item {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.news-item:hover {
-    transform: translateY(-5px);
-}
-
-.news-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.news-content {
-    padding: 20px;
-}
-
-.news-item h3 {
-    color: #333;
-    font-size: 20px;
-    margin: 0 0 15px 0;
-    line-height: 1.4;
-}
-
-.news-item p {
-    color: #666;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.read-more {
-    display: inline-block;
-    padding: 8px 20px;
-    background-color: #8B4513; /* Mengubah warna background menjadi hijau */
-    color: #ffffff; /* Mengubah warna teks menjadi putih untuk kontras yang lebih baik */
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-}
-
 /* Visit Now Section Styles */
 .visit-now {
     text-align: center;
-    margin-bottom: 50px;
+    margin: 50px 0; /* Tambahkan jarak atas dan bawah section */
 }
 
 .visit-now h1 {
@@ -367,6 +326,7 @@ body {
     border-radius: 20px;
     font-size: 0.9em;
 }
+
 
 /*Gallery Section Styles */
 .gallery {
@@ -428,7 +388,10 @@ body {
     display: block;
 }
 
-
+.card:hover {
+    transform: scale(1.05);
+transition: transform 0.5s ease;
+}
 
 .review-section {
     width: 100%;
@@ -545,25 +508,6 @@ body {
     color: #888;
 }
 
-/* Tombol Slider */
-.slider-button {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 2; /* Pastikan tombol berada di atas elemen lainnya */
-    transition: background-color 0.3s ease;
-}
-
-/* Pastikan parent reviews memiliki position relative untuk referensi tombol */
-.reviews {
-    position: relative;
-}
-
-
 /* Maps Section Styles */
 .maps {
     padding: 50px 20px;
@@ -579,80 +523,11 @@ body {
     margin: 0 auto;
 }
 
-/* Footer Styles */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-logo img {
-    width: 80px;
-    margin-bottom: 10px;
-}
-
-.footer-logo h3 {
-    font-size: 1.5rem;
-    margin-top: 10px;
-}
-
-.footer-social-media h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.social-icon img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
-}
-
-.social-icon img:hover {
-    transform: scale(1.1);
-}
-
-.footer-visit-us h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.footer-visit-us p {
-    font-size: 1rem;
-    margin: 5px 0;
-}
-
 /* Footer Bottom Styles */
 .footer-bottom {
-    background-color: #222; /* Warna background footer */
-    color: #fff;  /* Warna teks putih agar kontras */
     text-align: center;
-    padding: 20px 0;  /* Memberikan jarak vertikal pada footer */
 }
 
-.social-icons a {
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    color: #fff;
-}
 
-.footer-bottom p {
-    margin: 0;
-    font-size: 14px;
-}
+
 
