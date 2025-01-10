@@ -4,6 +4,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\historyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
 Route::get('/', [adminController::class, 'dashboard'])->name('dashboard');
 Route::get('/pages/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/', [historyController::class, 'index'])->name('history_index');
 
 
 Route::prefix('news')->group(function (){
