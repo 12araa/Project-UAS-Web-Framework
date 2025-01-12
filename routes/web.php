@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\PaymentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +15,26 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('tickets.tiket_select');
 });
+
+Route::get('/detail', function () {
+    return view('tickets.detail');
+});
+
+Route::get('/payment', function () {
+    return view('tickets.payment');
+});
+
+Route::get('/index', function () {
+    return view('tickets.index');
+});
+
+
+Route::get('/ticket', [TicketController::class, 'index'])->name('tickets.index');
+Route::post('/book', [TicketController::class, 'store'])->name('tickets.store');
+Route::get('/ticket/{id}', [TicketController::class, 'show'])->name('ticket.show');
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
+Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
+
