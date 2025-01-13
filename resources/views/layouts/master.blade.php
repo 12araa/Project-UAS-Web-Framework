@@ -32,8 +32,28 @@
             </ul>
 
             <div class="auth-buttons">
-                <a href="#" class="login-btn">Login</a>
-                <a href="#" class="signup-btn">Sign Up</a>
+                @guest
+                    <a href="{{ route('login') }}" class="login-btn">Login</a>
+                    <a href="{{ route('register')}}" class="signup-btn">Sign Up</a>
+                @else
+                    <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #8B4513; color: white; text-decoration: none; padding: 8px 16px; border-radius: 4px;">
+                            {{ Auth::user()->name }}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class='bx bx-ticket me-2'></i> My Ticket
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class='bx bx-log-out me-2'></i> Logout
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                @endguest
             </div>
         </div>
     </nav>

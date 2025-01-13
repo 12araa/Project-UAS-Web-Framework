@@ -1,0 +1,63 @@
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.dropdown-menu {
+    min-width: 200px;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    color: #212529;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Ensure the form button looks like a regular dropdown item */
+.dropdown-item[type="submit"] {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.news-section .card {
+    transition: transform 0.2s;
+    border: none;
+}
+
+.news-section .card:hover {
+    transform: translateY(-5px);
+}
+
+.news-section .card-img-top {
+    border-radius: 4px 4px 0 0;
+}
+
+.news-section .btn:hover {
+    opacity: 0.9;
+}

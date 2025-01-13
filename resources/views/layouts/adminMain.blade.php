@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   @stack('head-scripts')
 
@@ -53,7 +56,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('dashboard') }}" class="nav-link">Home</a>
+        <a href="{{ route('admin.dashboard') }}" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -87,9 +90,9 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      {{-- <span class="brand-text font-weight-light">AdminLTE 3</span> --}}
+    <a href="{{ route('history_index')}}" class="brand-link">
+        <img src="{{ asset('images/Logo.png') }}" alt="Tenganan Village Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Tenganan Village</span>
     </a>
 
     <!-- Sidebar -->
@@ -97,10 +100,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <i class="fas fa-user" style="color: white; font-size: 1.7rem; padding: 5px;"></i>
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          {{-- <a href="#" class="d-block">{{ Auth::user()->name }}</a> --}}
         </div>
       </div>
 
@@ -122,14 +125,6 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-header">MENUS</li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-                <i class="nav-icon far fa-user"></i>
-                <p>
-                    Profile
-                </p>
-            </a>
-          </li>
           <li class="nav-item">
             <a href="{{ route('gallery') }}" class="nav-link">
                 <i class="nav-icon far fa-image"></i>
@@ -165,6 +160,17 @@
           </li>
         </ul>
       </nav>
+      <ul class="nav nav-pills nav-sidebar flex-column" style="position: absolute; bottom: 0; width: 100%;">
+        <li class="nav-item">
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="nav-link w-100 text-left text-white" style="border:none; background:none;">
+              <i class="nav-icon bx bx-log-out "></i>
+              <p>Logout</p>
+            </button>
+          </form>
+        </li>
+      </ul>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

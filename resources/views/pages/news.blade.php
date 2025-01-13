@@ -1,56 +1,149 @@
-@extends('layouts.master')
+@extends('layouts.adminMain')
+
+
+@push('head-scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    window.confirmDelete = function(id, title) {
+        Swal.fire({
+            title: 'Delete Confirmation',
+            text: `Are you sure you want to delete "${title}"?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(id).click();
+            }
+        });
+    }
+});
+
+// Show success message if exists
+@if(session('deleted'))
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('deleted') }}'
+        });
+    });
+@endif
+</script>
+@endpush
+
 
 @section('content')
-<div class="container py-5">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- News Item 1 -->
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('images/Perang Pandan.png') }}" class="card-img-top" alt="Perang Pandan">
-                <div class="card-body">
-                    <h5 class="card-title">Perang Pandan</h5>
-                    <p class="card-text">Makare-kare atau Perang Pandan adalah tradisi yang dilaksanakan oleh masyarakat Desa Tenganan Pegringsingan.</p>
-                    <a href="/news/1" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
-                </div>
-            </div>
-        </div>
-         <!-- News Item 2 -->
-         <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('images/Ayunan.png') }}" class="card-img-top" alt="Tradisi Ayunan">
-                <div class="card-body">
-                    <h5 class="card-title">Ayunan Jantra</h5>
-                    <p class="card-text">Setelah melaksanakan tradisi mekare-kare atau perang pandan, para remaja putri akan melaksanakan sebuah tradisi yang bernama ayunan jantra.</p>
-                    <a href="/news/2" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
-                </div>
-            </div>
-        </div>
-        <!-- News Item 3 -->
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('images/Menenun.png') }}" class="card-img-top" alt="Kain Gringsing">
-                <div class="card-body">
-                    <h5 class="card-title">Kain Gringsing</h5>
-                    <p class="card-text">Keunikan lain yang dimiliki oleh Desa Tenganan adalah kerajinan tangan yaitu tenun double ikat Kain Gringsing.</p>
-                    <a href="/news/3" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Menambahkan margin-top pada baris kedua untuk memberi jarak -->
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-        <!-- News Item 4 -->
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('images/Gadis Tenganan.png') }}" class="card-img-top" alt="Tradisi Baru">
-                <div class="card-body">
-                    <h5 class="card-title">Fakta-Fakta Unik Desa Tenganan</h5>
-                    <p class="card-text">Tidak ada penjor saat Galungan, tidak merayakan hari raya Nyepi.</p>
-                    <a href="/news/4" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>News</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item active">News</li>
+                    </ol>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card-tools d-flex justify-content-end pt-3">
+            <a href="{{ route('news_create')}}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"> </i>
+                Add news
+            </a>
+        </div>
+
+        <div class="card">
+          <div class="card-body p-0">
+            <table class="table table-striped projects">
+                <thead>
+                    <tr>
+                        <th style="width: 5%">
+                            No.
+                        </th>
+                        <th style="width: 20%">
+                            Title
+                        </th>
+                        <th style="width: 38%">
+                            Content
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th style="width: 20%">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($news as $key => $item)
+                    <tr>
+                        <td>
+                            {{ $key + 1 }}
+                        </td>
+                        <td>
+                            <a>
+                                {{ $item->title }}
+                            </a>
+                            <br/>
+                            <small>
+                                Created {{ $item->created_at->format('d.m.Y') }}
+                            </small>
+                        </td>
+                        <td>
+                            <p class="content-preview">
+                                {{ Str::limit($item->content, 150, '...') }}
+                            </p>
+                        </td>
+                        <td class="img-thumbnail">
+                            <img src="{{ url('storage/' . $item->image) }}" alt="" style="max-width: 300px;">
+                        </td>
+                        <td class="project-actions text-right">
+                            <a class="btn btn-primary btn-sm" href="{{ route('news_show', $item->id)}}">
+                                <i class="fas fa-folder">
+                                </i>
+                                View
+                            </a>
+                            <a class="btn btn-info btn-sm" href="{{ route('news_edit', $item->id) }}">
+                                <i class="fas fa-pencil-alt">
+                                </i>
+                                Edit
+                            </a>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete('btndelete{{ $item->id }}', '{{ $item->title }}')">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+                            <form action="{{ route('news_destroy', $item->id) }}" method="POST" style="display:none">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="hidden" style="display: none" id="btndelete{{ $item->id }}"></button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </section>
 </div>
 @endsection

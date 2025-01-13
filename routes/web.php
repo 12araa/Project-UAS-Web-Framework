@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\historyController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\AdminMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,30 +20,57 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', [adminController::class, 'dashboard'])->name('dashboard');
-Route::get('/pages/gallery', [GalleryController::class, 'index'])->name('gallery');
-Route::get('/', [historyController::class, 'index'])->name('history_index');
-Route::get('/read-history', function () {
-    return view('pages.read-history'); // Pastikan file view ini tersedia di folder resources/views/pages
+app()->singleton('admin', AdminMiddleware::class);
+
+// Route untuk login
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+// Route untuk register
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+// Route untuk logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+//user
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('pages.dashboard');
+    });
 });
 
-Route::get('/news', function () {
-    return view('pages.news');
+// admin
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/pages/gallery', [GalleryController::class, 'index'])->name('gallery');
+});
+
+
+Route::get('/', [DashboardController::class, 'index'])->name('history_index');
+Route::get('/list/news', [NewsController::class, 'listNews'])->name('list_news');
+Route::get('/read-history', function () {
+    return view('pages.user.read-history');
+});
+
+Route::get('/news/list', function () {
+    return view('pages.user.list_news');
 });
 Route::get('/news/1', function () {
-    return view('pages.news1'); // Replace 'news1' with the actual view file
+    return view('pages.user.news1');
 });
 
 Route::get('/news/2', function () {
-    return view('pages.news2'); // Replace 'news2' with the actual view file
+    return view('pages.user.news2');
 });
 
 Route::get('/news/3', function () {
-    return view('pages.news3'); // Replace 'news3' with the actual view file
+    return view('pages.user.news3');
 });
 
 Route::get('/news/4', function () {
-    return view('pages.news4'); // Replace 'news4' with the actual view file
+    return view('pages.user.news4');
 });
 
 
@@ -52,8 +81,9 @@ Route::prefix('news')->group(function (){
     Route::post('/store', [NewsController::class, 'store'])->name('news_store');
     Route::get('/edit/{id}', [NewsController::class, 'edit'])->name('news_edit');
     Route::put('/update/{id}', [NewsController::class, 'update'])->name('news_update');
-    Route::get('/show/{id}', [NewsController::class, 'show'])->name('news_show');
+    Route::get('/show/{id}', [NewsController::class, 'show'])->middleware('auth')->name('news_show');
     Route::delete('/destroy/{id}', [NewsController::class, 'destroy'])->name('news_destroy');
+    Route::get('/read/{id}', [NewsController::class, 'news_read'])->name('news_read');
 
 });
 

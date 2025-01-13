@@ -44,16 +44,16 @@
           <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
+                <div class="inner">
+                    <h3>{{ $userCount ?? 0 }}</h3>
 
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
+                    <p>User Registrations</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
             </div>
-          </div>
+        </div>
           <!-- ./col -->
         </div>
         <!-- /.row -->
