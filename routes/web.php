@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [adminController::class, 'dashboard'])->name('dashboard');
+Route::get('/admin', [adminController::class, 'dashboard'])->name('dashboard');
 Route::get('/pages/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/', [historyController::class, 'index'])->name('history_index');
 
