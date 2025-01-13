@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-<section class="read-more-section">
+<section class="read-more-section bg-light">
     <div class="container">
         <h2 class="text-center">TRADISI AYUNAN JANTRA</h2>
         <div class="text-center mb-4">
-            <img src="{{ asset('images/Ayunan.png') }}" alt="" class="img-fluid" style="max-width: 70%; height: auto;">
+            <img src="{{ asset('images/Ayunan Jantra.png') }}" alt="" class="img-fluid" style="max-width: 70%; height: auto;">
         </div>
         <div class="content-wrapper">
             <p>

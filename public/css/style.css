@@ -3,6 +3,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%; /* Agar tidak ada batas lebar maksimum */
+    margin: 0 auto;
 }
 
 /* Tittle Styles */
@@ -25,7 +32,6 @@ body {
     display: block;
     width: 50px;
     height: 3px;
-    background: #8B4513;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -36,6 +42,7 @@ body {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
+    position: sticky;
 }
 
 .navbar-container {
@@ -189,7 +196,6 @@ body {
     display: block;
     width: 50px;
     height: 3px;
-    background: #8B4513;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -267,7 +273,6 @@ body {
 /* Visit Now Section Styles */
 .visit-now {
     text-align: center;
-    margin: 50px 0; /* Tambahkan jarak atas dan bawah section */
 }
 
 .visit-now h1 {
@@ -391,121 +396,6 @@ body {
 .card:hover {
     transform: scale(1.05);
 transition: transform 0.5s ease;
-}
-
-.review-section {
-    width: 100%;
-    text-align: center;
-    padding: 50px;
-    background-color: #fff;
-}
-
-.village-review-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Untuk menjaga responsivitas */
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.village-summary {
-    flex: 1; /* Berikan ruang proporsional */
-    max-width: 300px;
-    text-align: left;
-}
-
-.reviews {
-    flex: 2; /* Berikan lebih banyak ruang ke review */
-    overflow: hidden;
-    max-width: 1200px;
-}
-
-
-.review-slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.review-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    flex-shrink: 0;
-    margin: 0 10px;
-}
-
-.review-card h3 {
-    margin: 0;
-    color: #333;
-    font-size: 1.2rem;
-}
-
-.review-card .date {
-    font-size: 0.9rem;
-    color: #888;
-    margin: 5px 0 10px;
-}
-
-.review-card p {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.review-card .stars {
-    color: #ffa500;
-    margin-bottom: 10px;
-}
-
-.write-review {
-    margin-top: 20px;
-}
-
-.write-review a {
-    background-color: #8B4513;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.village-summary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.village-summary img {
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
-}
-
-.village-summary .info {
-    text-align: left;
-}
-
-.village-summary .info h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.village-summary .info .stars {
-    color: #ffa500;
-}
-
-.village-summary .info .review-count {
-    font-size: 0.9rem;
-    color: #888;
 }
 
 /* Maps Section Styles */

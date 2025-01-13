@@ -97,7 +97,7 @@
             </div>
         </section>
 
-        <section class="history-section" id="history">
+        <section class="history-section bg-light" id="history">
             <div class="history-grid">
                 <!-- Title Content -->
                 <div class="history-title">
@@ -127,9 +127,13 @@
                 <div class="row row-cols-1 row-cols-lg-4 g-4">
                     <!-- News Item 1 -->
                     <div class="col" data-aos="fade-right">
-                        <div class="card h-100 shadow-sm">
+                        <div class="card h-100 shadow-sm position-relative">
+                            <!-- Tanggal -->
+                            <div class="position-absolute top-0 end-0 bg-dark text-white px-2 py-1" style="border-radius: 0 0 0 5px;">20 Jan</div>
                             <img src="{{ asset('images/Perang Pandan.png') }}" class="card-img-top" alt="Perang Pandan">
                             <div class="card-body">
+                                <!-- Tulisan kecil -->
+                                <p class="text-muted mb-1">Tradisi Desa Tenganan</p>
                                 <h5 class="card-title">Perang Pandan</h5>
                                 <p class="card-text">Makare-kare atau Perang Pandan adalah tradisi yang dilaksanakan oleh masyarakat Desa Tenganan Pegringsingan.</p>
                                 <a href="/news/1" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
@@ -138,9 +142,13 @@
                     </div>
                     <!-- News Item 2 -->
                     <div class="col" data-aos="fade-right">
-                        <div class="card h-100 shadow-sm">
-                            <img src="{{ asset('images/Ayunan.png') }}" class="card-img-top" alt="Ayunan">
+                        <div class="card h-100 shadow-sm position-relative">
+                            <!-- Tanggal -->
+                            <div class="position-absolute top-0 end-0 bg-dark text-white px-2 py-1" style="border-radius: 0 0 0 5px;">18 Jan</div>
+                            <img src="{{ asset('images/Ayunan Jantra.png') }}" class="card-img-top" alt="Ayunan">
                             <div class="card-body">
+                                <!-- Tulisan kecil -->
+                                <p class="text-muted mb-1">Tradisi Ayunan</p>
                                 <h5 class="card-title">Ayunan Jantra</h5>
                                 <p class="card-text">Setelah melaksanakan tradisi mekare-kare atau perang pandan, para remaja putri akan melaksanakan sebuah tradisi yang bernama ayunan jantra.</p>
                                 <a href="/news/2" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
@@ -149,9 +157,13 @@
                     </div>
                     <!-- News Item 3 -->
                     <div class="col" data-aos="fade-left">
-                        <div class="card h-100 shadow-sm">
+                        <div class="card h-100 shadow-sm position-relative">
+                            <!-- Tanggal -->
+                            <div class="position-absolute top-0 end-0 bg-dark text-white px-2 py-1" style="border-radius: 0 0 0 5px;">15 Jan</div>
                             <img src="{{ asset('images/Menenun.png') }}" class="card-img-top" alt="Menenun">
                             <div class="card-body">
+                                <!-- Tulisan kecil -->
+                                <p class="text-muted mb-1">Kerajinan Tangan</p>
                                 <h5 class="card-title">Kain Gringsing</h5>
                                 <p class="card-text">Keunikan lain yang dimiliki oleh Desa Tenganan adalah kerajinan tangan yaitu tenun double ikat Kain Gringsing.</p>
                                 <a href="/news/3" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
@@ -160,12 +172,16 @@
                     </div>
                     <!-- News Item 4 -->
                     <div class="col" data-aos="fade-left">
-                        <div class="card h-100 shadow-sm">
+                        <div class="card h-100 shadow-sm position-relative">
+                            <!-- Tanggal -->
+                            <div class="position-absolute top-0 end-0 bg-dark text-white px-2 py-1" style="border-radius: 0 0 0 5px;">10 Jan</div>
                             <img src="{{ asset('images/Gadis Tenganan.png') }}" class="card-img-top" alt="Gadis Tenganan">
                             <div class="card-body">
+                                <!-- Tulisan kecil -->
+                                <p class="text-muted mb-1">Keunikan Desa</p>
                                 <h5 class="card-title">Fakta-Fakta Unik Desa Tenganan</h5>
                                 <p class="card-text">Tidak ada penjor saat Galungan, tidak merayakan hari raya Nyepi.</p>
-                                 <a href="/news/4" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
+                                <a href="/news/4" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -177,9 +193,10 @@
             </div>
         </section>
 
-         <section class="visit-now" id="book">
+         <section class="visit-now bg-light" id="book">
             <div class="history-title">
                 <h2>BOOK YOUR TICKET NOW</h2>
+                <p>Get Ready for a New Adventure, Book Your Tickets Now!</p>
             </div>
             <div class="grid-container" data-aos="fade-down">
                 <div class="ticket-card">
@@ -202,7 +219,7 @@
             </div>
         </section>
 
-        <section class="gallery" id="gallery">
+        <section class="gallery bg-light" id="gallery">
             <div class="section-title">
                 <h2>TENGANAN GALLERY</h2>
                 <p>Discover the captivating stories and latest updates from the charming Tenganan Village</p>
@@ -263,7 +280,7 @@
                     <!-- Card 2 -->
                     <div class="col-md-4" data-aos="zoom-in-up">
                         <div class="card h-100 shadow-sm">
-                            <img src="{{ asset('images/Topeng.png') }}" class="card-img-top" alt="Kerajinan Bambu">
+                            <img src="{{ asset('images/Topeng Tenganan.png') }}" class="card-img-top" alt="Kerajinan Bambu">
                             <div class="card-body">
                                 <h5 class="card-title">Kerajinan Topeng</h5>
                                 <p class="card-text">Desa Tenganan dikenal sebagai pusat budaya Bali Aga yang unik, dan salah satu warisan seni yang menonjol adalah kerajinan topeng. Topeng yang dibuat oleh para perajin di desa ini tidak hanya memiliki nilai estetika yang tinggi, tetapi juga mengandung makna spiritual dan filosofi mendalam yang mencerminkan tradisi lokal.</p>
@@ -285,56 +302,71 @@
             </div>
         </section>
 
-        <section class="review-section" id="reviews">
-            <div class="section-title">
-                <h2>REVIEWS</h2>
-                <p>Read reviews, testimonials, and feedback to learn more about this unique destination</p>
-            </div>
-            <div class="village-review-container">
-                <div class="village-summary">
-                    <img src="{{ asset('images/Logo.png') }}" alt="Logo Tenganan Village">
-                    <div class="info">
-                        <h2>Tenganan Village</h2>
-                        <div class="stars">★★★★★</div>
-                        <div class="review-count">23,266 Google reviews</div>
-                        <div class="write-review">
-                            <a href="https://www.google.com/maps/place/Tenganan,+Kec.+Manggis,+Kabupaten+Karangasem,+Bali/@-8.4763133,115.5277936,13782m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2dd208ae07ab780d:0xd5e08aa546665776!8m2!3d-8.4717387!4d115.5651478!16s%2Fm%2F0glnnrh?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" target="https://www.google.com/maps/place/Tenganan,+Kec.+Manggis,+Kabupaten+Karangasem,+Bali/@-8.4763133,115.5277936,13782m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2dd208ae07ab780d:0xd5e08aa546665776!8m2!3d-8.4717387!4d115.5651478!16s%2Fm%2F0glnnrh?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D">Write a review</a>
+        <section class="review-section bg-light" id="reviews">
+            <div class="container">
+                <div class="row text-center mb-4">
+                    <div class="col">
+                        <h2 style="font-size: 36px;"><strong>REVIEWS</strong></h2>
+                        <p>Read reviews, testimonials, and feedback to learn more about this unique destination</p>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center text-md-start">
+                        <div class="village-summary d-flex align-items-center">
+                            <img src="{{ asset('images/Logo.png') }}" alt="Logo Tenganan Village" class="me-3" style="width: 60px; height: 60px;">
+                            <div>
+                                <h2 class="h5">Tenganan Village</h2>
+                                <div class="stars text-warning">★★★★★</div>
+                                <div class="review-count text-muted">23,266 Google reviews</div>
+                                <div class="write-review mt-3">
+                                    <a href="https://www.google.com/maps/place/Tenganan,+Kec.+Manggis,+Kabupaten+Karangasem,+Bali"
+                                       target="_blank"
+                                       class="btn btn-sm btn-primary">
+                                        Write a review
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="reviews">
-                    <div class="review-slider">
-                        <div class="review-card" data-aos="fade-left">
-                            <h3>yanti erwendy</h3>
-                            <div class="date">2024-06-27</div>
-                            <div class="stars">★★★★☆</div>
-                            <p>Bagus... cuma datang di waktu hujan dan pada siang hari jadinya banyak org.. enakan perginya pagi jadi untuk foto foto rada sepi.</p>
-                        </div>
-                        <div class="review-card" data-aos="fade-left">
-                            <h3>yanti erwendy</h3>
-                            <div class="date">2024-06-27</div>
-                            <div class="stars">★★★★☆</div>
-                            <p>Bagus... cuma datang di waktu hujan dan pada siang hari jadinya banyak org.. enakan perginya pagi jadi untuk foto foto rada sepi.</p>
-                        </div>
-                        <div class="review-card" data-aos="fade-left">
-                            <h3>yanti erwendy</h3>
-                            <div class="date">2024-06-27</div>
-                            <div class="stars">★★★★☆</div>
-                            <p>Bagus... cuma datang di waktu hujan dan pada siang hari jadinya banyak org.. enakan perginya pagi jadi untuk foto foto rada sepi.</p>
-                        </div>
-                        <div class="review-card" data-aos="fade-left">
-                            <h3>yanti erwendy</h3>
-                            <div class="date">2024-06-27</div>
-                            <div class="stars">★★★★☆</div>
-                            <p>Bagus... cuma datang di waktu hujan dan pada siang hari jadinya banyak org.. enakan perginya pagi jadi untuk foto foto rada sepi.</p>
+                    <div class="col-md-8">
+                        <div class="row row-cols-1 row-cols-md-3 g-3">
+                            <div class="col" data-aos="fade-left">
+                                <div class="review-card card border-light h-100" style="border-radius: 15px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">yanti erwendy</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">2024-06-27</h6>
+                                        <div class="stars text-warning">★★★★☆</div>
+                                        <p class="card-text">Bagus... cuma datang di waktu hujan dan pada siang hari jadinya banyak org.. enakan perginya pagi jadi untuk foto foto rada sepi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" data-aos="fade-left">
+                                <div class="review-card card border-light h-100" style="border-radius: 15px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">yanti erwendy</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">2024-06-27</h6>
+                                        <div class="stars text-warning">★★★★☆</div>
+                                        <p class="card-text">Bagus... cuma datang di waktu hujan dan pada siang hari jadinya banyak org.. enakan perginya pagi jadi untuk foto foto rada sepi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" data-aos="fade-left">
+                                <div class="review-card card border-light h-100" style="border-radius: 15px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">yanti erwendy</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">2024-06-27</h6>
+                                        <div class="stars text-warning">★★★★☆</div>
+                                        <p class="card-text">Bagus... cuma datang di waktu hujan dan pada siang hari jadinya banyak org.. enakan perginya pagi jadi untuk foto foto rada sepi.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="maps" id="maps">
+        <section class="maps bg-light" id="maps">
             <div class="section-title">
                 <h2>COME AND VISIT US</h2>
                 <p>Discover the enchanting world of Tenganan Village</p>

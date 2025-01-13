@@ -21,8 +21,8 @@
 
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#history">History</a></li>
                 <li><a href="#fitur">Fitur</a></li>
+                <li><a href="#history">History</a></li>
                 <li><a href="#news">News</a></li>
                 <li><a href="#book">Book</a></li>
                 <li><a href="#gallery">Gallery</a></li>
@@ -53,7 +53,7 @@
                         <img src="{{ asset('images/Logo.png') }}" alt="Tenganan Village Logo" class="me-3" style="width: 50px;">
                         <h3 class="m-0">TENGANAN VILLAGE</h3>
                     </div>
-                    <p class="mt-3">Discover the beauty and culture of Tenganan Village, Bali's iconic heritage destination.</p>
+                    <p class="mt-3">Discover the beauty and culture of Tenganan Pegringsingan Village, Bali's iconic heritage destination.</p>
                 </div>
 
                 <!-- Kolom 2: Quick Links -->
@@ -97,7 +97,7 @@
                 <!-- Kolom 4: Visit Us -->
                 <div class="col-md-3 mb-4">
                     <h3 class="mb-3">Visit Us</h3>
-                    <p>Jl. Tenganan, Bali, Indonesia</p>
+                    <p>Jl. Tenganan, Karangasem, Bali</p>
                     <p>Open Daily: 8 AM - 6 PM</p>
                 </div>
             </div>

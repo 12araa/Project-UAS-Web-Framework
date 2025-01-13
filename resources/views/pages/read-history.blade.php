@@ -3,7 +3,7 @@
 @section('content')
 <section class="read-more-section">
     <div class="container">
-        <h2 class="text-center">SEJARAH DESA TENGANAN</h2>
+        <h2 class="text-center">SEJARAH DESA TENGANAN PEGRINGSINGAN</h2>
         <div class="text-center mb-4">
             <img src="{{ asset('images/Desa Tenganan.png') }}" alt="" class="img-fluid" style="max-width: 70%; height: auto;">
         </div>

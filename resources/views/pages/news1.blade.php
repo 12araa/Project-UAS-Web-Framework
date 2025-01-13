@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<section class="read-more-section">
+<section class="read-more-section bg-light">
     <div class="container">
         <h2 class="text-center">TRADISI PERANG PANDAN</h2>
         <div class="text-center mb-4">
