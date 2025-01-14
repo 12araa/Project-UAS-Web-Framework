@@ -125,7 +125,7 @@
                     <p>Stay updated on the latest news and updates about Tenganan Village</p>
                 </div>
                 <div class="row row-cols-1 row-cols-lg-4 g-4">
-                    @if(count($news) > 0)
+                    @if(isset($news) && !is_null($news) && count($news) > 0)
                         @foreach($news->take(4) as $item)
                             <div class="col" data-aos="fade-right">
                                 <div class="card h-100 shadow-sm position-relative">
@@ -210,7 +210,7 @@
                 </div>
                 <!-- Tombol View More -->
                 <div class="text-center mt-4">
-                    <a href="/news/list" class="btn btn-dark">View More</a>
+                    <a href="{{ route('list_news')}}" class="btn btn-dark">View More</a>
                 </div>
             </div>
         </section>
@@ -240,7 +240,7 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="/news" class="btn btn-dark">Book Now</a>
+                <a href="{{ route('ticket')}}" class="btn btn-dark">Book Now</a>
             </div>
         </section>
 

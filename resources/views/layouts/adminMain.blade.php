@@ -103,7 +103,7 @@
             <i class="fas fa-user" style="color: white; font-size: 1.7rem; padding: 5px;"></i>
         </div>
         <div class="info">
-          {{-- <a href="#" class="d-block">{{ Auth::user()->name }}</a> --}}
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 

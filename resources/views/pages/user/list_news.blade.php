@@ -5,24 +5,6 @@
 <div class="container py-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
-        <div class="col">
-            @foreach($news as $item)
-            <div class="card h-100 shadow-sm">
-                <div class="position-absolute top-0 end-0 bg-dark text-white px-2 py-1" style="border-radius: 0 0 0 5px;">{{ $item->created_at->format('d M') }}</div>
-                <img src="{{ asset('storage/' . $item->image) }}"
-                class="img-fluid w-80"
-                alt="{{ $item->title }}"
-                style="max-height: 500px; object-fit: cover;">
-                <div class="card-body">
-                    <!-- Tulisan kecil -->
-                    <p class="text-muted mb-1">Tradisi Desa Tenganan</p>
-                    <h5 class="card-title">{{ $item->title }}</h5>
-                    <p class="card-text">{{ Str::limit($item->content, 100) }}</p>
-                    <a href="{{ route('news_read', $item->id)}}" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
-                </div>
-            </div>
-            @endforeach
-        </div>
         <!-- News Item 1 -->
         <div class="col">
             <div class="card h-100 shadow-sm">
@@ -85,7 +67,28 @@
                 </div>
             </div>
         </div>
+        <div class="col">
+            @foreach($news as $item)
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="position-absolute top-0 end-0 bg-dark text-white px-2 py-1" style="border-radius: 0 0 0 5px;">{{ $item->created_at->format('d M') }}</div>
+                        <img src="{{ asset('storage/' . $item->image) }}"
+                        class="img-fluid w-80"
+                        alt="{{ $item->title }}"
+                        style="max-height: 500px; object-fit: cover;">
+                        <div class="card-body">
+                            <!-- Tulisan kecil -->
+                            <p class="text-muted mb-1">Tradisi Desa Tenganan</p>
+                            <h5 class="card-title">{{ $item->title }}</h5>
+                            <p class="card-text">{{ Str::limit($item->content, 100) }}</p>
+                            <a href="{{ route('news_read', $item->id)}}" class="btn" style="background-color: #8B4513; color: white;">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
+
 </div>
 </section>
 @endsection

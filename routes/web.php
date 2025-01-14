@@ -7,6 +7,9 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\PaymentController;
+
 use App\Http\Middleware\AdminMiddleware;
 
 /*
@@ -19,6 +22,15 @@ use App\Http\Middleware\AdminMiddleware;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/tickets', [TicketController::class, 'index'])->name('ticket');
+
+Route::get('/detail', function () {
+    return view('tickets.detail');
+});
+
+Route::get('/payment', function () {
+    return view('tickets.payment');
+});
 
 app()->singleton('admin', AdminMiddleware::class);
 
@@ -49,14 +61,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('history_index');
-Route::get('/list/news', [NewsController::class, 'listNews'])->name('list_news');
+Route::get('/list/news', [DashboardController::class, 'listNews'])->name('list_news');
 Route::get('/read-history', function () {
     return view('pages.user.read-history');
 });
 
-Route::get('/news/list', function () {
-    return view('pages.user.list_news');
-});
 Route::get('/news/1', function () {
     return view('pages.user.news1');
 });
@@ -96,3 +105,18 @@ Route::prefix('event')->group(function () {
     Route::get('/show/{id}', [EventController::class, 'show'])->name('event_show');
     Route::delete('/destroy/{id}', [EventController::class, 'destroy'])->name('event_destroy');
 });
+
+Route::get('/index', function () {
+    return view('tickets.index');
+});
+
+
+Route::get('/ticket', [TicketController::class, 'index'])->name('tickets.index');
+Route::post('/book', [TicketController::class, 'store'])->name('tickets.store');
+Route::get('/ticket/{id}', [TicketController::class, 'show'])->name('ticket.show');
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
+Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/my-tickets', [TicketController::class, 'myTickets'])->name('user.tickets');
+});
+

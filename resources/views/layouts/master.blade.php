@@ -41,9 +41,15 @@
                             {{ Auth::user()->name }}
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class='bx bx-ticket me-2'></i> My Ticket
-                            </a>
+                            @if(Auth::user()->role === 'admin')
+                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                    <i class='bx bx-dashboard me-2'></i> Dashboard
+                                </a>
+                            @else
+                                <a class="dropdown-item" href="{{ route('user.tickets') }}">
+                                    <i class='bx bx-ticket me-2'></i> My Ticket
+                                </a>
+                            @endif
                             <div class="dropdown-divider"></div>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
