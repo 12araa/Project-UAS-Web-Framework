@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
@@ -82,6 +83,12 @@ Route::get('/news/4', function () {
     return view('pages.user.news4');
 });
 
+Route::get('/statistik/penduduk', [ChartController::class, 'index'])->name('penduduk.index');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/statistics', [ChartController::class, 'edit'])->name('admin.statistics.edit');
+    Route::put('/admin/statistics', [ChartController::class, 'update'])->name('admin.statistics.update');
+});
 
 
 Route::prefix('news')->group(function (){

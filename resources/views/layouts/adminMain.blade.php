@@ -126,6 +126,14 @@
                with font-awesome or any other icon font library -->
           <li class="nav-header">MENUS</li>
           <li class="nav-item">
+            <a href="{{ route('admin.statistics.edit')}}" class="nav-link">
+                <i class="nav-icon far fa-user"></i>
+                <p>
+                    Penduduk
+                </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('gallery') }}" class="nav-link">
                 <i class="nav-icon far fa-image"></i>
                 <p>

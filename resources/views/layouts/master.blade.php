@@ -9,15 +9,27 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css')}}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{ asset('lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{ asset('lte/plugins/daterangepicker/daterangepicker.css')}}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css')}}">
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="{{ asset('lte/plugins/ekko-lightbox/ekko-lightbox.css')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css')}}">
 </head>
 <body>
     <header>
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="logo">
-                <img src="{{ asset('images/Logo.png') }}" alt="Tenganan Village Logo">
-                <span>TENGANAN VILLAGE</span>
-            </div>
+            <a href="{{ route('history_index') }}" class="brand-link">
+                <img src="{{ asset('images/Logo.png') }}" alt="Tenganan Village Logo" class="brand-image">
+                <span class="brand-text text-dark">TENGANAN VILLAGE</span>
+            </a>
 
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -141,6 +153,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @stack('js')
     <!-- Bootstrap JS dan Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
