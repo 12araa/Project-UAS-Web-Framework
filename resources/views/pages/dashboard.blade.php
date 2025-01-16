@@ -37,7 +37,7 @@
                                 </div>
                                 <h5 class="card-title">Statistik Penduduk</h5>
                                 <p class="card-text">Informasi lengkap tentang jumlah dan profil penduduk Desa Tenganan.</p>
-                                <a href="/statistik-penduduk" class="btn btn-success mt-auto">Lihat Statistik</a>
+                                <a href="#chart" class="btn btn-success mt-auto">Lihat Statistik</a>
                             </div>
                         </div>
                     </div>
@@ -373,6 +373,60 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="chart-section py-5 bg-light" id="chart">
+            <div class="container">
+                <div class="row text-center mb-4">
+                    <div class="col">
+                        <h2 style="font-size: 36px;"><strong>TENGANAN POPULATION INSIGHTS</strong></h2>
+                        <p>Explore the demographic patterns of our village, where tradition meets modern population dynamics</p>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="card text-center h-100 shadow-sm" data-aos="fade-up">
+                                <div class="card-body">
+                                    <i class='bx bx-group mb-3' style="font-size: 2rem; color: #4e73df;"></i>
+                                    <h5 class="card-title">Total Penduduk</h5>
+                                    <h3 class="card-text">{{ $statistics->total_penduduk }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center h-100 shadow-sm" data-aos="fade-up">
+                                <div class="card-body">
+                                    <i class='bx bx-home-alt mb-3' style="font-size: 2rem; color: #1cc88a;"></i>
+                                    <h5 class="card-title">Jumlah KK</h5>
+                                    <h3 class="card-text">{{ $statistics->jumlah_kk }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center h-100 shadow-sm" data-aos="fade-up">
+                                <div class="card-body">
+                                    <i class='bx bx-male mb-3' style="font-size: 2rem; color: #36b9cc;"></i>
+                                    <h5 class="card-title">Laki-laki</h5>
+                                    <h3 class="card-text">{{ $statistics->laki_laki }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center h-100 shadow-sm" data-aos="fade-up">
+                                <div class="card-body">
+                                    <i class='bx bx-female mb-3' style="font-size: 2rem; color: #f6c23e;"></i>
+                                    <h5 class="card-title">Perempuan</h5>
+                                    <h3 class="card-text">{{ $statistics->perempuan }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{{ route('penduduk.index')}}" class="btn btn-dark">View Detail</a>
                 </div>
             </div>
         </section>
