@@ -11,18 +11,15 @@ class PaymentController extends Controller
     {
         // Validate the form data
         $request->validate([
-            'card_number' => 'required|string|max:16',
-            'expiry_date' => 'required|date_format:Y-m',
-            'cvv' => 'required|string|max:3',
-            'cardholder_name' => 'required|string|max:255',
-            'billing_address' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'account_details' => 'required|string|max:255',
         ]);
 
         // Save payment details to the database
         Payment::create($request->all());
 
         // Redirect to a confirmation or details page
-        return redirect()->route('ticket.show')->with('success', 'Payment submitted successfully!');
+        return view('tickets.detail')->with('success', 'Payment submitted successfully!');
     }
 
     public function index()

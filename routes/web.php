@@ -31,6 +31,10 @@ Route::get('/index', function () {
     return view('tickets.index');
 });
 
+Route::get('/qris', function () {
+    return view('tickets.qris');
+});
+
 
 Route::get('/ticket', [TicketController::class, 'index'])->name('tickets.index');
 Route::post('/book', [TicketController::class, 'store'])->name('tickets.store');

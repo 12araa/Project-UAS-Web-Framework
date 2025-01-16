@@ -9,11 +9,5 @@ class Payment extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'card_number',
-        'expiry_date',
-        'cvv',
-        'cardholder_name',
-        'billing_address',
-    ];
+    protected $fillable = ['name', 'account_details'];
 }

@@ -35,17 +35,10 @@ class TicketController extends Controller
     $totalPrice = $pricePerTicket * $request->tickets;
 
     // Simpan data ke database
-    Ticket::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'date' => $request->date, // Sesuai dengan kolom date di tabel
-        'ticket_package' => $request->ticketPackage,
-        'tickets' => $request->tickets, // Sesuai dengan kolom tickets di tabel
-        'total_price' => $totalPrice,
-    ]);
+    Ticket::create($request->all());
 
     // Redirect dengan pesan sukses
-    return redirect()->route('payment')->with('success', 'Booking berhasil disimpan!');
+    return redirect()->route('detail')->with('success', 'Booking berhasil disimpan!');
 }
 
 
