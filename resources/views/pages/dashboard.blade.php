@@ -98,22 +98,30 @@
         </section>
 
         <section class="history-section bg-light" id="history">
-            <div class="history-grid">
-                <!-- Title Content -->
-                <div class="history-title">
-                    <h2>HISTORY TENGANAN VILLAGE</h2>
-                    <p>Explore the rich culture and beauty of Tenganan Village in Bali</p>
+            <div class="container">
+                <div class="row">
+                    <!-- Title Content -->
+                    <div class="section-title col-12 text-center mb-4">
+                        <h2 class="fw-bold">HISTORY TENGANAN VILLAGE</h2>
+                        <p>Explore the rich culture and beauty of Tenganan Village in Bali</p>
+                    </div>
                 </div>
-                <!-- Text Content -->
-                <div class="history-content">
-                    <p>
-                        Desa Tenganan, atau yang lebih dikenal dengan nama Tenganan Pegringsingan, adalah sebuah desa adat yang terletak di Kecamatan Manggis, Kabupaten Karangasem, Bali, Indonesia. Desa ini terkenal sebagai salah satu desa kuno yang masih mempertahankan tradisi dan budaya Bali Aga, yaitu budaya asli Bali yang lebih tua dan berbeda dengan budaya Bali pada umumnya.
-                    <br>
-                    <a href="/read-history" class="btn-read-more">Baca Selengkapnya</a>
-                </div>
-                <!-- Image Content -->
-                <div class="history-image" div data-aos="zoom-in-up">
-                    <img src="{{ asset('images/Desa Tenganan.png') }}" alt="Desa Tenganan">
+                <div class="row align-items-center">
+                    <!-- Text Content -->
+                    <div class="col-md-6 mb-4">
+                        <p>
+                            Desa Tenganan, atau yang lebih dikenal dengan nama Tenganan Pegringsingan, adalah sebuah desa adat yang terletak di Kecamatan Manggis, Kabupaten Karangasem, Bali, Indonesia. Desa ini terkenal sebagai salah satu desa kuno yang masih mempertahankan tradisi dan budaya Bali Aga, yaitu budaya asli Bali yang lebih tua dan berbeda dengan budaya Bali pada umumnya.
+                        </p>
+                        <a href="/read-history" class="btn" style="background-color: #8B4513; color: white;">Baca Selengkapnya</a>
+                    </div>
+                    <!-- Video Content -->
+                    <div class="col-md-6 text-center" data-aos="zoom-in-up">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item rounded shadow-sm"
+                                    src="https://www.youtube.com/embed/vBFaGFsSPQ4"
+                                    allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -215,8 +223,50 @@
             </div>
         </section>
 
-         <section class="visit-now bg-light" id="book">
-            <div class="history-title">
+        <section id="event" class="py-5 bg-light">
+            <div class="section-title">
+                <h2>UPCOMING EVENTS</h2>
+                <p>Explore the impressive events of Tenganan village</p>
+            </div>
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Card 1 -->
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100" data-aos="zoom-out">
+                            <img src="{{ asset('images/Perang Pandan.png') }}" class="card-img-top" alt="Event 1" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">Perang Pandan</h5>
+                                <p class="card-text"> Salah satu yang menjadi daya tarik Desa Tenganan adalah tradisi perang pandan mereka yang akrab disebut mekaré-karé.</p>
+                                <p class="card-text text-muted"><small>📅 Date: January 20, 2025 | 📍 Location: Tenganan Village</small></p>
+                                <a href="#" class="btn" style="background-color: #8B4513; color: white;">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100" data-aos="zoom-out">
+                            <img src="{{ asset('images/Ayunan Jantra.png') }}" class="card-img-top" alt="Event 2" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">Ayunan Jantra</h5>
+                                <p class="card-text">Ayunan Jantra tidak hanya menjadi sarana hiburan, tetapi juga melambangkan keharmonisan, kebersamaan, dan siklus kehidupan. </p>
+                                <p class="card-text text-muted"><small>📅 Date: February 15, 2025 | 📍 Location: Tenganan Village</small></p>
+                                <a href="#" class="btn" style="background-color: #8B4513; color: white;">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            #event-section {
+                min-height: 500px; /* Menentukan tinggi minimum section */
+            }
+        </style>
+
+        <section class="visit-now bg-light" id="book">
+            <div class="section-title">
                 <h2>BOOK YOUR TICKET NOW</h2>
                 <p>Get Ready for a New Adventure, Book Your Tickets Now!</p>
             </div>

@@ -24,6 +24,7 @@
                 <li><a href="#fitur">Fitur</a></li>
                 <li><a href="#history">History</a></li>
                 <li><a href="#news">News</a></li>
+                <li><a href="#event">Event</a></li>
                 <li><a href="#book">Book</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#UMKM">UMKM Desa</a></li>
@@ -90,6 +91,7 @@
                         <li><a href="#fitur" class="text-light text-decoration-none">Fitur</a></li>
                         <li><a href="#history" class="text-light text-decoration-none">History</a></li>
                         <li><a href="#news" class="text-light text-decoration-none">News</a></li>
+                        <li><a href="#event" class="text-light text-decoration-none">Event</a></li>
                         <li><a href="#book" class="text-light text-decoration-none">Book</a></li>
                         <li><a href="#gallery" class="text-light text-decoration-none">Gallery</a></li>
                         <li><a href="#UMKM" class="text-light text-decoration-none">UMKM Desa</a></li>
