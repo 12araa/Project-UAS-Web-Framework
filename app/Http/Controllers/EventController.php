@@ -87,7 +87,7 @@ class EventController extends Controller
             'event_date' => $request->event_date
         ]);
 
-        return redirect()->route('events')->with('updated', 'Event updated succesfully');
+        return redirect()->route('event')->with('updated', 'Event updated succesfully');
     }
 
     /**
@@ -103,6 +103,6 @@ class EventController extends Controller
 
         $event->delete();
 
-        return redirect()->route('events')->with('deleted', 'Event deleted succesfully');
+        return redirect()->route('event')->with('deleted', 'Event deleted succesfully');
     }
 }

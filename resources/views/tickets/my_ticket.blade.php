@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="content-wrapper">
+<div class="content-wrapper ml-0">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
@@ -84,7 +84,7 @@
                                     <span class="badge badge-success">Success</span>
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="{{ route('ticket.show') }}">
+                                    <a class="btn btn-primary btn-sm" href="{{ route('ticket.show', $ticket->id) }}">
                                         <i class="fas fa-folder">
                                         </i>
                                         View

@@ -10,7 +10,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // $statistics = Population::latest()->first() ?? new Population();
         $statistics = Population::latest()->first();
+        if (!$statistics) {
+            $statistics = new Population();
+            $statistics->total_penduduk = 0; // Set nilai default
+        }
         $news = News::latest()->take(4)->get();
         return view('pages.dashboard', compact('statistics','news'));
     }

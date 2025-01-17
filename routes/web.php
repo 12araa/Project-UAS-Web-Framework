@@ -49,9 +49,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //user
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('pages.dashboard');
-    });
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });
 
 // admin

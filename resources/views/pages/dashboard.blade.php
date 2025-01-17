@@ -392,7 +392,7 @@
                                 <div class="card-body">
                                     <i class='bx bx-group mb-3' style="font-size: 2rem; color: #4e73df;"></i>
                                     <h5 class="card-title">Total Penduduk</h5>
-                                    <h3 class="card-text">{{ $statistics->total_penduduk }}</h3>
+                                    <h3 class="card-text">{{ $statistics ? $statistics->total_penduduk : 0 }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -401,7 +401,7 @@
                                 <div class="card-body">
                                     <i class='bx bx-home-alt mb-3' style="font-size: 2rem; color: #1cc88a;"></i>
                                     <h5 class="card-title">Jumlah KK</h5>
-                                    <h3 class="card-text">{{ $statistics->jumlah_kk }}</h3>
+                                    <h3 class="card-text">{{ $statistics ? $statistics->jumlah_kk : 0 }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -410,7 +410,7 @@
                                 <div class="card-body">
                                     <i class='bx bx-male mb-3' style="font-size: 2rem; color: #36b9cc;"></i>
                                     <h5 class="card-title">Laki-laki</h5>
-                                    <h3 class="card-text">{{ $statistics->laki_laki }}</h3>
+                                    <h3 class="card-text">{{ $statistics ? $statistics->laki_laki : 0 }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -419,7 +419,7 @@
                                 <div class="card-body">
                                     <i class='bx bx-female mb-3' style="font-size: 2rem; color: #f6c23e;"></i>
                                     <h5 class="card-title">Perempuan</h5>
-                                    <h3 class="card-text">{{ $statistics->perempuan }}</h3>
+                                    <h3 class="card-text">{{ $statistics ? $statistics->perempuan : 0 }}</h3>
                                 </div>
                             </div>
                         </div>
