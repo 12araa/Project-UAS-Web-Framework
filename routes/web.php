@@ -42,3 +42,4 @@ Route::get('/ticket/{id}', [TicketController::class, 'show'])->name('ticket.show
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
 Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
 
+Route::get('/tickets/payment/{ticket_id}', [TicketController::class, 'show'])->name('tickets.payment');

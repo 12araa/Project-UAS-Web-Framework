@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Storing the user's name
-            $table->string('account_details'); // Storing account or bank info
-            $table->timestamps(); // Created at and Updated at
+            $table->string('name');
+            $table->string('email');
+            $table->date('date');
+            $table->string('ticket_package');
+            $table->integer('tickets');
+            $table->decimal('total_price', 10, 2);
+            $table->timestamps();
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('tickets');
     }
 };

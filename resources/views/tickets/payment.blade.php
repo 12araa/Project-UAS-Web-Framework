@@ -177,7 +177,7 @@
                 <div class="form-group">
 
                     <label for="account-details">Name</label>
-                    <input type="text" id="account-details" name="account_details" placeholder="Name" required>
+                    <input type="text" id="name" name="name" placeholder="Name" required>
 
                 </div>
                 <div class="form-group">

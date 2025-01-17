@@ -17,34 +17,41 @@ class TicketController extends Controller
     $validated = $request->validate([
         'name' => 'required|string|max:255',
         'email' => 'required|email|max:255',
-        'date' => 'required|date', // Kolom date
-        'ticketPackage' => 'required|string',
-        'tickets' => 'required|integer|min:1', // Kolom tickets
+        'date' => 'required|date', // Visit date
+        'ticket_package' => 'required|string', // Corrected from ticketPackage
+        'tickets' => 'required|integer|min:1', // Number of tickets
     ]);
 
-    // Tentukan harga tiket berdasarkan pilihan paket
+    // Define ticket prices based on the package
     $ticketPrices = [
         'domesticAdult' => 25000,
         'domesticChild' => 15000,
         'foreignerAdult' => 50000,
         'foreignerChild' => 25000,
     ];
-    $pricePerTicket = $ticketPrices[$request->ticketPackage] ?? 0;
 
-    // Hitung total harga
-    $totalPrice = $pricePerTicket * $request->tickets;
+    // Get the price per ticket based on the selected package
+    $pricePerTicket = $ticketPrices[$validated['ticket_package']] ?? 0;
 
-    // Simpan data ke database
-    Ticket::create($request->all());
+    // Calculate total price
+    $totalPrice = $pricePerTicket * $validated['tickets'];
 
-    // Redirect dengan pesan sukses
-    return redirect()->route('detail')->with('success', 'Booking berhasil disimpan!');
+    // Add total_price to the validated data
+    $validated['total_price'] = $totalPrice;
+
+    // Save the data to the database
+    $ticket = Ticket::create($validated);
+
+    // Redirect to the 'tickets.payment' view with ticket data
+    return redirect()->route('tickets.payment', ['ticket_id' => $ticket->id])
+                     ->with('success', 'Booking berhasil disimpan!');
 }
+
 
 
     public function show($ticket_id){
         $tickets = Ticket::findOrFail($ticket_id);
 
-        return view('tickets.detail', compact('tickets'));
+        return view('tickets.payment', compact('tickets'));
     }
 }

@@ -100,16 +100,16 @@
         <!-- Order Summary Section -->
         <div class="section order-summary">
             <h2>Order Summary</h2>
-            <p><strong>Order ID:</strong>{{ $tickets->id }}</p>
-            <p><strong>Order Date:</strong>{{$tickets->created_at->format('d F Y') }}</p>
+            <p><strong>Order ID:</strong>{{ $tickets_id->id }}</p>
+            <p><strong>Order Date:</strong>{{$tickets_id->created_at->format('d F Y') }}</p>
             <p><strong>Status:</strong> Confirmed</p>
         </div>
 
         <!-- Customer Information Section -->
         <div class="section customer-info">
             <h2>Customer Information</h2>
-            <p><strong>Name:</strong>{{ $tickets->name}}</p>
-            <p><strong>Email:</strong> {{$tickets->email}}</p>
+            <p><strong>Name:</strong>{{ $tickets_id->name}}</p>
+            <p><strong>Email:</strong> {{$tickets_id->email}}</p>
         </div>
 
         <!-- Order Items Section -->
@@ -126,17 +126,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $tickets->tiket_package}}</td>
-                        <td>{{ $tickets->tickets}}</td>
-                        <td>{{ $tickets->price}}</td>
-                        <td>{{ $tickets->total_price}}</td>
+                        <td>{{ $tickets_id->tiket_package}}</td>
+                        <td>{{ $tickets_id->tickets}}</td>
+                        <td>{{ $tickets_id->price}}</td>
+                        <td>{{ $tickets_id->total_price}}</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="3" class="total">Grand Total</td>
                         <td>
-                            IDR {{ number_format($tickets->sum('total_price'), 0, ',', '.') }}
+                            IDR {{ number_format($tickets_id->sum('total_price'), 0, ',', '.') }}
                         </td>
                     </tr>
                 </tfoot>
