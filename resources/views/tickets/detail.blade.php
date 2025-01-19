@@ -95,7 +95,6 @@
 </head>
 <body>
     <div class="container">
-        @foreach ($tickets as $ticket)
         <h1>Order Details</h1>
 
         <!-- Order Summary Section -->
@@ -127,7 +126,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $ticket->tiket_package}}</td>
+                        <td>{{ $ticket->ticket_package}}</td>
                         <td>{{ $ticket->tickets}}</td>
                         <td>{{ $ticket->price}}</td>
                         <td>{{ $ticket->total_price}}</td>
@@ -137,7 +136,7 @@
                     <tr>
                         <td colspan="3" class="total">Grand Total</td>
                         <td>
-                            IDR {{ number_format($ticket->sum('total_price'), 0, ',', '.') }}
+                            IDR {{ number_format($ticket->total_price, 0, ',', '.') }}
                         </td>
                     </tr>
                 </tfoot>
@@ -145,10 +144,9 @@
         </div>
 
         <!-- Button Section -->
-        <button>Print Invoice</button>
+        <button>Print Invoice</button> <br>
+        <a href="{{ route('payment')}}"><button>Payment</button></a> <br>
         <a href="/"><button>go back</button></a>
-
-        @endforeach
     </div>
 </body>
 </html>

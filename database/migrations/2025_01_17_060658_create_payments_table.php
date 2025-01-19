@@ -9,19 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
-{
-    Schema::create('payments', function (Blueprint $table) {
-        $table->id();
-        $table->string('card_number');
-        $table->string('expiry_date');
-        $table->string('cvv');
-        $table->string('cardholder_name');
-        $table->string('billing_address');
-        $table->timestamps();
-    });
-}
-
+    public function up(): void
+    {
+        Schema::create('payments', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('account_details');
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

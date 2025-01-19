@@ -15,33 +15,41 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi input, pastikan 'price' ada
-        $validatedData = $request->validate([
-            'ticketPackage' => 'required|string',
-            'tickets' => 'required|integer|min:1',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
             'date' => 'required|date',
-            'price' => 'required|integer',  // Validasi untuk price
-            'total_price' => 'required|integer',  // Validasi untuk total_price
+            'ticket_package' => 'required|string',
+            'tickets' => 'required|integer|min:1',
         ]);
 
-        // Simpan data tiket
+        // Define ticket prices
+        $ticketPrices = [
+            'domesticAdult' => 25000,
+            'domesticChild' => 15000,
+            'foreignerAdult' => 50000,
+            'foreignerChild' => 25000,
+        ];
+
+        // Calculate prices
+        $pricePerTicket = $ticketPrices[$validated['ticket_package']] ?? 0;
+        $totalPrice = $pricePerTicket * $validated['tickets'];
+
+        // Create ticket
         $ticket = Ticket::create([
             'user_id' => Auth::id(),
-            'name' => Auth::user()->name,
-            'email' => Auth::user()->email,
-            'date' => $request->date,
-            'ticket_package' => $request->ticketPackage,
-            'tickets' => $request->tickets,
-            'price' => $request->price,  // Menyimpan harga per tiket
-            'total_price' => $request->total_price,  // Menyimpan total harga
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'date' => $validated['date'],
+            'ticket_package' => $validated['ticket_package'],
+            'tickets' => $validated['tickets'],
+            'price' => $pricePerTicket,
+            'total_price' => $totalPrice,
         ]);
 
-        // Redirect dengan pesan sukses
-        return redirect()->route('payment')->with('ticket_id', $ticket->id);
+        return redirect()->route('tickets.payment', ['ticket_id' => $ticket->id])
+                        ->with('success', 'Booking berhasil disimpan!');
     }
-
-
-
 
     public function show($ticket_id)
     {
@@ -51,7 +59,6 @@ class TicketController extends Controller
 
         return view('tickets.detail', compact('ticket'));
     }
-
 
     public function myTickets()
     {

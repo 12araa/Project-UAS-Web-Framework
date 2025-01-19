@@ -72,7 +72,7 @@
 
                         <div class="mb-3">
                             <label for="ticketPackage" class="form-label">Pilih Paket Tiket</label>
-                            <select name="ticketPackage" id="ticketPackage" class="form-control" required>
+                            <select name="ticket_package" id="ticket_package" class="form-control" required>
                                 <option value="domesticAdult">Domestic Dewasa (IDR 25.000)</option>
                                 <option value="domesticChild">Domestic Anak (IDR 15.000)</option>
                                 <option value="foreignerAdult">Foreigner Dewasa (IDR 50.000)</option>
@@ -90,7 +90,7 @@
 
                         <div class="total-amount mb-4">
                             <span class="fw-bold">Total Harga: </span>
-                            <span id="totalAmount" class="text-primary">IDR 0</span>
+                            <span id="totalprice" class="text-primary">IDR 0</span>
                         </div>
                         <button type="submit" class="btn btn-submit w-100 text-white py-2">Book Now</button>
                     </form>
@@ -104,9 +104,10 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    const ticketPackageSelect = document.getElementById("ticketPackage");
+    // Correcting the element references
+    const ticketPackageSelect = document.getElementById("ticket_package"); // Fixing the ID
     const ticketsInput = document.getElementById("tickets");
-    const totalAmountElement = document.getElementById("totalAmount");
+    const totalAmountElement = document.getElementById("totalprice"); // Fixing the ID
 
     const ticketPrices = {
         domesticAdult: 25000,
@@ -115,23 +116,24 @@
         foreignerChild: 25000
     };
 
-    // Fungsi untuk menghitung total harga
+    // Function to calculate and update total price
     function updateTotalAmount() {
         const selectedPackage = ticketPackageSelect.value;
         const ticketCount = parseInt(ticketsInput.value) || 0;
         const pricePerTicket = ticketPrices[selectedPackage] || 0;
         const totalPrice = pricePerTicket * ticketCount;
 
-        // Menampilkan total harga
+        // Update the total price display
         totalAmountElement.textContent = `IDR ${totalPrice.toLocaleString()}`;
 
         document.getElementById("price").value = pricePerTicket;
         document.getElementById("totalPrice").value = totalPrice;
     }
 
-    // Menambahkan event listener untuk update harga saat memilih paket atau jumlah tiket
+    // Adding event listeners to update the price dynamically
     ticketPackageSelect.addEventListener("change", updateTotalAmount);
     ticketsInput.addEventListener("input", updateTotalAmount);
 </script>
+
 </body>
 </html>

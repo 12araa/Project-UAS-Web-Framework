@@ -115,13 +115,25 @@ Route::get('/index', function () {
     return view('tickets.index');
 });
 
-
-Route::get('/ticket', [TicketController::class, 'index'])->name('tickets.index');
-Route::post('/book', [TicketController::class, 'store'])->name('tickets.store');
-Route::get('/ticket/{id}', [TicketController::class, 'show'])->name('ticket.show');
-Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
-Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
-Route::middleware(['auth'])->group(function () {
-    Route::get('/my-tickets', [TicketController::class, 'myTickets'])->name('user.tickets');
+Route::get('/qris', function () {
+    return view('tickets.qris');
 });
 
+
+Route::prefix('ticket')->group(function () {
+    // Route::get('/', [TicketController::class, 'index'])->name('tickets.index');
+    Route::post('/book', [TicketController::class, 'store'])->name('tickets.store');
+    Route::get('/{id}', [TicketController::class, 'show'])->name('tickets.show');
+    Route::get('/payment/{ticket_id}', [TicketController::class, 'show'])->name('tickets.payment');
+
+    // Route yang membutuhkan authentication
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/my-tickets', [TicketController::class, 'myTickets'])->name('user.tickets');
+    });
+});
+
+// Kelompokkan route payment
+Route::prefix('payment')->group(function () {
+    Route::get('/', [PaymentController::class, 'index'])->name('payment');
+    Route::post('/', [PaymentController::class, 'store'])->name('payments.store');
+});
